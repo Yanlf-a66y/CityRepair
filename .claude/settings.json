@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn dependency:resolve -q)",
+      "Bash(mvn clean *)",
+      "Bash(mvn dependency:tree -Dincludes=com.baomidou)",
+      "Bash(ls ~/.m2/repository/com/baomidou/mybatis-plus-annotation/3.5.9/ 2>/dev/null)",
+      "Read(//c/Users/GJH/.m2/repository/com/baomidou/mybatis-plus-annotation/3.5.9/**)",
+      "Bash(jar tf *)",
+      "Bash(ls -la ~/.m2/repository/com/baomidou/mybatis-plus-extension/3.5.9/mybatis-plus-extension-3.5.9.jar)",
+      "Read(//c/Users/GJH/.m2/repository/com/baomidou/mybatis-plus-extension/3.5.9/**)",
+      "Bash(ls ~/.m2/repository/com/baomidou/mybatis-plus-annotation/ 2>/dev/null)",
+      "Read(//c/Users/GJH/.m2/repository/com/baomidou/mybatis-plus-annotation/**)",
+      "Read(//c/Users/GJH/.m2/repository/com/baomidou/mybatis-plus-extension/3.5.7/**)",
+      "Bash(java -version)",
+      "Bash(javac -version)",
+      "Bash(javap -classpath mybatis-plus-annotation-3.5.7.jar com.baomidou.mybatisplus.annotation.TableField)",
+      "Bash(mvn package *)",
+      "Bash(mvn spring-boot:run)",
+      "Bash(curl -s http://localhost:8080/api/health)",
+      "Bash(netstat -ano)",
+      "Bash(kill -f 5696)",
+      "Bash(taskkill //F //PID 5696)",
+      "Bash(cmd.exe /c \"taskkill /F /PID 5696\")",
+      "Bash(mvn spring-boot:run -Dspring-boot.run.arguments=\"--server.port=8081\")",
+      "Bash(curl -s http://localhost:8081/api/health)",
+      "Bash(curl -s -X POST http://localhost:8081/api/auth/login -H \"Content-Type: application/json\" -d '{\"username\":\"resident1\",\"password\":\"123456\"}')",
+      "Bash(jobs -l)",
+      "Bash(curl -s -X POST \"http://localhost:8081/api/auth/login\" -H \"Content-Type: application/json\" -d \"{\\\\\"username\\\\\":\\\\\"resident1\\\\\",\\\\\"password\\\\\":\\\\\"123456\\\\\"}\")",
+      "Bash(powershell -Command \"Get-Process -Name java -ErrorAction SilentlyContinue | Select-Object Id,ProcessName\")",
+      "Bash(kill 26248)",
+      "Bash(curl -s -X POST \"http://localhost:8081/api/auth/login\" -H \"Content-Type: application/json\" -d '{\"username\":\"resident1\",\"password\":\"123456\"}')"
+    ]
+  }
+}
