@@ -2,12 +2,12 @@ package com.cityrepair.controller;
 
 import com.cityrepair.common.ApiResponse;
 import com.cityrepair.common.PageQuery;
+import com.cityrepair.entity.OrderStatusLog;
 import com.cityrepair.enums.OrderStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.cityrepair.service.AdminOrderService;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -15,16 +15,16 @@ import java.util.Map;
 @RequestMapping("/repair-orders")
 public class RepairOrderController {
 
+    private final AdminOrderService adminOrderService;
+
+    public RepairOrderController(AdminOrderService adminOrderService) {
+        this.adminOrderService = adminOrderService;
+    }
+
     @GetMapping("/statuses")
     public ApiResponse<List<String>> statuses() {
-        return ApiResponse.success(List.of(OrderStatus.PENDING_REVIEW.name(),
-                OrderStatus.PENDING_ASSIGN.name(),
-                OrderStatus.PENDING_ACCEPT.name(),
-                OrderStatus.PROCESSING.name(),
-                OrderStatus.COMPLETED.name(),
-                OrderStatus.EVALUATED.name(),
-                OrderStatus.REJECTED.name(),
-                OrderStatus.CANCELLED.name()));
+        return ApiResponse.success(Arrays.stream(OrderStatus.values())
+                .map(Enum::name).toList());
     }
 
     @GetMapping("/my")
@@ -35,5 +35,10 @@ public class RepairOrderController {
                 "total", 0,
                 "records", List.of()
         ));
+    }
+
+    @GetMapping("/{id}/logs")
+    public ApiResponse<List<OrderStatusLog>> logs(@PathVariable Long id) {
+        return adminOrderService.getLogs(id);
     }
 }
