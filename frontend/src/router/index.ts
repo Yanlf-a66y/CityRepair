@@ -5,6 +5,7 @@ import AdminOrdersView from '@/views/AdminOrdersView.vue'
 import WorkerOrdersView from '@/views/WorkerOrdersView.vue'
 import WorkerOrderDetailView from '@/views/WorkerOrderDetailView.vue'
 import EvaluationView from '@/views/EvaluationView.vue'
+import CategoryView from '@/views/CategoryView.vue'
 
 const router = createRouter({
   history: createWebHistory(),
@@ -16,6 +17,7 @@ const router = createRouter({
     { path: '/worker/orders', name: 'worker-orders', component: WorkerOrdersView, meta: { title: '维修工单' } },
     { path: '/worker/orders/:id', name: 'worker-order-detail', component: WorkerOrderDetailView, meta: { title: '工单处理' } },
     { path: '/evaluations', name: 'evaluations', component: EvaluationView, meta: { title: '评价与通知' } },
+    { path: '/categories', name: 'categories', component: CategoryView, meta: { title: '类别管理' } },
   ],
 })
 
