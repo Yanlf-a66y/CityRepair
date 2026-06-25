@@ -30,6 +30,10 @@
           <el-icon><ChatLineSquare /></el-icon>
           <span>评价与通知</span>
         </el-menu-item>
+        <el-menu-item index="/categories">
+          <el-icon><Collection /></el-icon>
+          <span>类别管理</span>
+        </el-menu-item>
       </el-menu>
     </el-aside>
 
@@ -50,7 +54,7 @@
 </template>
 
 <script setup lang="ts">
-import { ChatLineSquare, Checked, DataAnalysis, EditPen, Tools } from '@element-plus/icons-vue'
+import { ChatLineSquare, Checked, Collection, DataAnalysis, EditPen, Tools } from '@element-plus/icons-vue'
 </script>
 
 <style scoped>
